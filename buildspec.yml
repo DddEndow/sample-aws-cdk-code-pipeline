@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+    commands:
+      - |
+        echo Instaling packages started..
+        python3 -m pip install pipenv
+        npm install -g aws-cdk
+        pipenv install
+  build:
+    commands:
+      - |
+        echo Launching virtual environments started..
+        export VENV_HOME_DIR=$(pipenv --venv)
+        . $VENV_HOME_DIR/bin/activate
+        echo Translating into cloudformation started..
+        cdk synth sample-aws-cdk-pipeline
+artifacts:
+  base-directory: cdk.out
+  files: '**/*'
