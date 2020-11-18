@@ -1,3 +1,5 @@
+参考元リポジトリ
+https://github.com/joe-king-sh/aws-cdk-fargate-batch
 
 # Welcome to your CDK Python project!
 
